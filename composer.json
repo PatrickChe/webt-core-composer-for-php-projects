@@ -1,0 +1,11 @@
+{
+    "name": "fpluh/webt-core-composer-for-php-projects",
+    "autoload": {
+        "psr-4": {
+            "Fpluh\\WebtCoreComposerForPhpProjects\\": "src/"
+        }
+    },
+    "require": {
+        "endroid/qr-code": "^5.0"
+    }
+}
