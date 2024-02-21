@@ -68,4 +68,7 @@ if (isset($result)) {
     // Display the QR code image and center it
     echo '<img src="data:' . $result->getMimeType() . ';base64,' . base64_encode($result->getString()) . '" class="mx-auto" />';
 }
+echo '</div>';
+echo '</body>';
+echo '</html>';
 ?>
