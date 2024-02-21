@@ -14,6 +14,7 @@ use Endroid\QrCode\RoundBlockSizeMode;
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Get phone number from the form
     $phoneNumber = isset($_POST["phone_number"]) ? $_POST["phone_number"] : "";
+    $phoneNumber = 'tel:' . $phoneNumber;
 
     // Create QR code for the phone number
     $writer = new PngWriter();
@@ -50,13 +51,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <!-- Form section -->
         <form method="post" action="" class="mb-8">
             <!-- Input field for phone number-->
-            <input type="text" name="phone_number" placeholder="Enter your phone number" class="w-full px-4 py-2 mb-4 border rounded-md" required>
+            <input type="text" name="phone_number" placeholder="Enter your phone number"
+                class="w-full px-4 py-2 mb-4 border rounded-md" required>
             <br>
 
             <!-- Flex container to center the button horizontally -->
             <div class="flex justify-center">
                 <!-- Submit button -->
-                <input type="submit" value="Generate QR Code" class="bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer">
+                <input type="submit" value="Generate QR Code"
+                    class="bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer">
             </div>
         </form>
 
@@ -69,4 +72,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         ?>
     </div>
 </body>
+
 </html>
