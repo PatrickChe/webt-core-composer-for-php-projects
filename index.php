@@ -29,8 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $result = $writer->write($qrCode);
 }
-?>
 
+echo <<<HT
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,15 +62,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     class="bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer">
             </div>
         </form>
-
-        <!-- Display the QR code if it's generated -->
-        <?php
-        if (isset($result)) {
-            // Display the QR code image and center it
-            echo '<img src="data:' . $result->getMimeType() . ';base64,' . base64_encode($result->getString()) . '" class="mx-auto" />';
-        }
-        ?>
-    </div>
-</body>
-
-</html>
+HT;
+//<!-- Display the QR code if it's generated -->
+if (isset($result)) {
+    // Display the QR code image and center it
+    echo '<img src="data:' . $result->getMimeType() . ';base64,' . base64_encode($result->getString()) . '" class="mx-auto" />';
+}
+?>
